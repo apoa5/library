@@ -26,6 +26,7 @@ console.log(myLibrary)
 //Create function to display added book to page
 const bookContainer = document.querySelector('.bookContainer');
 function displayBook() {
+    bookContainer.innerHTML = '';
     for (let i = 0; i < myLibrary.length; i++) {
         const bookCard = document.createElement('div');
         bookCard.classList.add('bookCard');
@@ -57,5 +58,24 @@ openDialogButton.addEventListener("click", ()=>{
 
 closeDialogButton.addEventListener("click", (e)=>{
     e.preventDefault();
+    dialog.close();
+})
+
+const form = document.getElementById('book-form');
+
+
+//Event listener to form to add new book to bookContainer
+form.addEventListener("submit", (e)=> {
+    e.preventDefault();
+
+    const title = document.getElementById('book-title').value;
+    const author = document.getElementById('book-author').value;
+    const pages = document.getElementById('book-pages').value;
+    const hasBeenRead = document.getElementById('book-read').checked;
+
+    addBookToLibrary(title, author, parseInt(pages, 10), hasBeenRead);
+    displayBook();
+
+    form.reset();
     dialog.close();
 })
