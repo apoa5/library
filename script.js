@@ -27,23 +27,34 @@ console.log(myLibrary)
 const bookContainer = document.querySelector('.bookContainer');
 function displayBook() {
     bookContainer.innerHTML = '';
-    for (let i = 0; i < myLibrary.length; i++) {
+
+    myLibrary.forEach((book, index) => {
         const bookCard = document.createElement('div');
         bookCard.classList.add('bookCard');
+
         const title = document.createElement('div');
         const author = document.createElement('div');
         const pages = document.createElement('div');
         const read = document.createElement('div');
+        const deleteButton = document.createElement('button');
 
-        title.textContent = `Title: ${myLibrary[i].title}`;
-        author.textContent = `Author: ${myLibrary[i].author}`;
-        pages.textContent = `Number of Pages: ${String(myLibrary[i].pages)}`;
-        read.textContent = `Has been read? : ${String(myLibrary[i].hasBeenRead)}`;
-        bookCard.append(title, author, pages, read);
+        title.textContent = `Title: ${book.title}`;
+        author.textContent = `Author: ${book.author}`;
+        pages.textContent = `Number of Pages: ${book.pages}`;
+        read.textContent = `Has been read? : ${book.hasBeenRead ? 'Yes' : 'No'}`;
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('deleteButton');
+
+        deleteButton.addEventListener('click', () => {
+            myLibrary.splice(index, 1);
+            displayBook();
+        });
+
+        bookCard.append(title, author, pages, read, deleteButton);
         bookContainer.append(bookCard);
-    }
-
+    });
 }
+
 
 displayBook();
 
