@@ -47,7 +47,6 @@ function displayBook() {
 displayBook();
 
 //Event listeners to open a dialog modal when the 'New Book' button is pressed
-
 const dialog = document.getElementById('dialog');
 const closeDialogButton = document.getElementById('close-dialog');
 const openDialogButton = document.getElementById('open-dialog');
