@@ -38,12 +38,13 @@ function displayBook() {
         const read = document.createElement('div');
         const deleteButton = document.createElement('button');
 
-        title.textContent = `Title: ${book.title}`;
+        title.textContent = `${book.title}`;
         author.textContent = `Author: ${book.author}`;
         pages.textContent = `Number of Pages: ${book.pages}`;
         read.textContent = `Has been read? : ${book.hasBeenRead ? 'Yes' : 'No'}`;
-        deleteButton.textContent = 'Delete';
+        deleteButton.textContent = 'Remove';
         deleteButton.classList.add('deleteButton');
+        title.classList.add('title');
 
         deleteButton.addEventListener('click', () => {
             myLibrary.splice(index, 1);

@@ -1,3 +1,26 @@
+body {
+    background-color: #CBB092;
+    font-family: 'Georgia', serif;
+    color: #333;
+}
+
+.header {
+    border-bottom: 1px solid #333;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+}
+
+.header-icon {
+    height: 40px;
+}
+
+.header-text {
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .bookContainer {
     display: flex;
     flex-wrap: wrap;
@@ -6,14 +29,128 @@
 }
 
 .bookCard {
-    border: 1px solid #ccc;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    max-width: 200px;
+    background-color: #D2B48C;
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bookCard .title {
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #333;
+}
+
+.bookCard div {
+    font-size: 16px;
+    color: #555;
 }
 
 .deleteButton {
-    
+    align-self: flex-end;
+    background-color: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+    background-color: #ff4c4c;
+}
+
+#open-dialog {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.3s;
+}
+
+#open-dialog:hover {
+    background-color: #45a049;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+#open-dialog:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+dialog {
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    background-color: #D2B48C;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #333;
+}
+
+form input[type="text"] {
+    background-color: #CBB092;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+form input[type="checkbox"] {
+    margin-left: 5px;
+}
+
+menu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0;
+}
+
+menu button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+menu button#close-dialog {
+    background-color: #f44336;
+}
+
+menu button:hover {
+    background-color: #45a049;
+}
+
+menu button#close-dialog:hover {
+    background-color: #d32f2f;
 }
