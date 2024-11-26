@@ -9,6 +9,10 @@ function Book(title, author, pages, hasBeenRead) {
     this.hasBeenRead = hasBeenRead;
 }
 
+Book.prototype.toggleReadStatus = function () {
+    this.hasBeenRead = !this.hasBeenRead;
+};
+
 //Manually create some books for now so I can see them
 const book1 = new Book("Moby Dick", "Charles Dickens", 750, false);
 myLibrary.push(book1);
@@ -36,22 +40,32 @@ function displayBook() {
         const author = document.createElement('div');
         const pages = document.createElement('div');
         const read = document.createElement('div');
+        const toggleReadButton = document.createElement('button');
         const deleteButton = document.createElement('button');
 
         title.textContent = `${book.title}`;
         author.textContent = `Author: ${book.author}`;
         pages.textContent = `Number of Pages: ${book.pages}`;
         read.textContent = `Has been read? : ${book.hasBeenRead ? 'Yes' : 'No'}`;
+        toggleReadButton.textContent = 'Toggle Read';
         deleteButton.textContent = 'Remove';
+
+        toggleReadButton.classList.add('toggleButton');
         deleteButton.classList.add('deleteButton');
         title.classList.add('title');
+
+        // Add event listeners to buttons
+        toggleReadButton.addEventListener('click', () => {
+            book.toggleReadStatus();
+            displayBook();
+        });
 
         deleteButton.addEventListener('click', () => {
             myLibrary.splice(index, 1);
             displayBook();
         });
 
-        bookCard.append(title, author, pages, read, deleteButton);
+        bookCard.append(title, author, pages, read, toggleReadButton, deleteButton);
         bookContainer.append(bookCard);
     });
 }
@@ -64,11 +78,11 @@ const dialog = document.getElementById('dialog');
 const closeDialogButton = document.getElementById('close-dialog');
 const openDialogButton = document.getElementById('open-dialog');
 
-openDialogButton.addEventListener("click", ()=>{
+openDialogButton.addEventListener("click", () => {
     dialog.showModal();
 })
 
-closeDialogButton.addEventListener("click", (e)=>{
+closeDialogButton.addEventListener("click", (e) => {
     e.preventDefault();
     dialog.close();
 })
@@ -77,7 +91,7 @@ const form = document.getElementById('book-form');
 
 
 //Event listener to form to add new book to bookContainer
-form.addEventListener("submit", (e)=> {
+form.addEventListener("submit", (e) => {
     e.preventDefault();
 
     const title = document.getElementById('book-title').value;

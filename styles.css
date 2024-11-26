@@ -68,6 +68,27 @@ body {
     background-color: #ff4c4c;
 }
 
+.toggleButton {
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px 0;
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggleButton:hover {
+    background-color: #45a049; 
+  }
+  
+  .toggleButton:active {
+    background-color: #3e8e41;
+  }
+  
+
 #open-dialog {
     background-color: #4CAF50;
     color: white;
